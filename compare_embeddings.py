@@ -1,6 +1,5 @@
 from langchain.evaluation import load_evaluator
 from create_database import SentenceTransformersEmbeddings
-# from langchain_huggingface import HuggingFaceEmbeddings
 
 def main():
     # Initialize embedding function

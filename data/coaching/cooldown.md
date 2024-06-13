@@ -1,0 +1,12 @@
+COOLDOWN
+OVERVIEW
+The objective of cooldowns is to wind down from the workout, commence the removal/release of corrosive substances (metabolites) from your system, and get your body into a resting state so you can start the recovery process as soon as possible. Done correctly, a cooldown should consist of a slow, easy pace, perhaps starting a bit faster/more moderate and slowing over time, ranging from 10-45 minutes, depending on what is desired. Doing an extended cooldown of 25-45 minutes will improve one's fatigue resistance given your body is depleted of glycogen and other energy sources and filled with more corrosive/fatigue-inducing substances. Put simply, you're putting your body under a significant amount of time under fatigue. Suffice to say, these extended cooldowns should be done very selectively and are best utilized when the desire is to improve fatigue resistance and/or get an extra aerobic stimulus. Because of these reasons, they're particularly useful when a long run doesn't make sense for the week (e.g., having lots of races in a short time period) but you want to do some maintenance of that general endurance or you're in half marathon/marathon training during a period of time where maximum high-end aerobic training is a point of emphasis. Interestingly, there is actually merit to doing some faster, marathon-paced work at the end of faster 10k-800m-oriented workouts. It may actually help flush your system out better than just going right into a slow jog back home. Moral of the story: a cooldown shouldn't necessarily just be a slow 10-15' jog. Use some short intervals at a steady effort/MP to start before then going into that slower jog. There’s also value to doing 5-10 minutes of walking after all run types to transition to a resting state and flush out any leftover corrosive substances.
+
+GENERAL STRUCTURE
+As suggested above, a cooldown should consist of 10-45 minutes of easy, relatively slow running. However, in the case of a shorter, non-extended cooldown, adding in a faster portion in the first five minutes or so, hitting intervals at a steady-marathon effort, before the slower running is worth trying. Then, finish with a brief period of walking (5-10 minutes).
+
+EXAMPLE
+Here's an example cooldown following a hard workout for an athlete whose easy run pace is 7:30/mile and marathon pace is 6:00/mile:
+4x200 in 44-46" w/ 200j (4 laps on a track)
+10' run regressing from 7:20/mile to 7:50/mile
+5’ walk

@@ -1,0 +1,15 @@
+MAKING A TRAINING PLAN
+OVERVIEW
+Making a training plan can be a long and involved process, although I don’t think it needs to be THAT complicated. Generally, I like to follow these steps:
+If it’s a new athlete, talk with the athlete and learn about their past training, strengths and weaknesses, nutrition and sleep habits, etc., keeping this all in mind going forward. Otherwise, reassess what you know about your athlete based on how the last block has gone and any takeaways that came from that.
+Establish goals with your athlete for the upcoming training block, both product and process.
+Determine the athlete’s racing schedule, conducive to their goals, marking their “A,” “B”, “C”, and (optionally) “D” races, A being highest priority and D being lowest priority. Mark these races in the training plan.
+Reverse-engineer the athlete’s training plan from their peak, or “A,” race to the start of the block.
+Establish the training phases (general endurance + general speed => aerobic + anaerobic support => … => race-specific work).
+Determine weekly mileages and potential down weeks.
+Decide on the optimal training micro-cycle (e.g., 7-day versus 10-day versus 14-day) and establish the general structure of each micro-cycle (what days each run type will fall on).
+Write up the progressions for each pacing classification (e.g., general endurance), working backwards starting with the hardest workouts that you want the athlete to reach.
+Write/type out the general layout of the training block, marking your various workout types from week to week based on what the training phase is.
+Plug in the workouts from the progressions to cover the next few weeks and continue plugging as the block progresses, changing workouts as needed based on how things are going.
+
+Importantly, you should NOT write out all the details of a plan. A suggestion that I’ve recently taken to heart from Steve Magness is to only ever have three or so weeks planned out from the current week. Once a week has passed and only two weeks are planned, you can then write out that third week, and you should repeat this process throughout the training block. This way, you can more easily adapt if things don’t go to plan, as you don’t have the entire plan set in stone with no wiggle room. Additionally, it helps you be more intentional about hitting desired adaptations based on the current phase. Another important point which I recently learned from Magness and Marcus is to sprinkle in “fluff” workouts, ones that are retentive in nature, throughout the months. By doing this, you’ve allowed for more wiggle room in the plan such that if you end up having to cancel the “fluff” workout, it’s not a big deal as it wasn’t really providing a development stimulus. Without these fluff workouts, it can be overwhelming missing a workout as you feel you’ve missed a critical stimulus and need to jam it in some other day. For example, you might have a 14-day micro-cycle where the first week has Monday, Wednesday, Friday workouts and a Saturday long run and the second week has lighter Monday and Wednesday workouts, the Wednesday workout being a “fluff” one, and a Saturday race/time trial.
