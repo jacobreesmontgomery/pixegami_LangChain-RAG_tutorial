@@ -7,24 +7,12 @@ import query_data as qd
 
 app = Flask(__name__)
 # Enabling requests from our front-end React client
-CORS(app, resources={
-        r"/get_existing_data": {"origins": "http://localhost:3000"}, 
-        r"/new_query": {"origins": "http://localhost:3000"}
-})
+CORS(app, resources={r"/*": {"origins": "*"}, })
 
 
 @app.route("/")
 def index():
     return "Chroma Data Retrieval API"
-
-
-@app.route('/get_existing_data', methods=['GET'])
-def get_existing_data():
-    """
-        Gets the existing Chroma data.
-    """
-    # return jsonify(qd.load_chroma_data())
-    return {"members": ["Member 1"]}
 
 
 @app.route('/new_query', methods=['POST'])
