@@ -5,7 +5,6 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from dotenv import load_dotenv
 import openai
 import os
-import sqlite3
 
 load_dotenv()
 openai.api_key = os.environ['OPENAI_API_USER_KEY']
