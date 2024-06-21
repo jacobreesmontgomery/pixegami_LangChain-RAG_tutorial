@@ -1,21 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
     const [input, setInput] = useState('')
-    const [response, setResponse] = useState('')
     const [chatHistory, setChatHistory] = useState([]) // 2D array w/ structure [ ["Q1", "A1"], ..., ["Qn", "An"] ], where n is the total number of questions asked
     const [requestInProcess, setRequestInProcess] = useState(null)
-    const [viewChatHistory, setViewChatHistory] = useState(false)
+
+    const messagesEndRef = useRef(null) // Ref to the last message element
+
+    // Function to scroll to the bottom of chat history
+    const scrollToBottom = () => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
+    // Effect to scroll to bottom whenever chatHistory changes
+    useEffect(() => {
+        scrollToBottom()
+    }, [chatHistory])
 
     const handleInputChange = (e) => {
         setInput(e.target.value)
     }
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') handleUserQuery()
+    }
+
     const handleUserQuery = async (e) => {
       setRequestInProcess(true)
+
+      const userMessage = input.trim()
+      if (!userMessage) return
+      setInput("") // resetting input
+
+      // Update chat history with user's message
+      setChatHistory(prev => [...prev, { text: userMessage, isUser: true }])
+
       // Sending the POST query to our backend Flask server
       try {
+        // Simulating backend response delay
+        await new Promise(resolve => setTimeout(resolve, 1000))
+
         const res = await fetch('http://127.0.0.1:5000/new_query', {
             method: 'POST',
             headers: {
@@ -24,61 +51,42 @@ function App() {
             body: JSON.stringify({ input }) 
         })
         const data = await res.json()
-        setResponse(data.response)
-        setChatHistory([...chatHistory, [input, data.response]])
-        setInput('') // resetting input
+        setChatHistory(prev => [...prev, { text: data.response, isUser: false }])
       } catch (error) {
           console.error('Error:', error)
       }
       setRequestInProcess(false)
     }
 
-    function toggleChatHistory() {
-      setViewChatHistory(!viewChatHistory)
-    }
-
+    // TODO: Store conversation history into SQLite and display it in a side bar so the user can go back to any conversation
     const convoHist = chatHistory.map((convo, index) =>
-      <div className='q-and-a-wrapper' key={index}>
-        <p><strong>Question</strong>: {convo[0]}</p>
-        <p><strong>Answer</strong>: {convo[1]}</p>
+      <div className={convo.isUser ? 'message user-message' : 'message response-message'} key={index} ref={messagesEndRef}>
+        {convo.text}
       </div>
     )
 
     return (
-        <div className='container'>
-          <div className='form-wrapper'>
-            <h1>User Query</h1>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <textarea 
-                value={input}
-                onChange={handleInputChange}
-                placeholder="Enter your query here..."
-              ></textarea>
-              <button type="button" onClick={handleUserQuery}>Run User Query</button>
-            </form>
-            <br /><hr /><br />
-            {response ? (
-                // We have a returned response
-                requestInProcess ?
-                  <p><strong>Response</strong>: TBD...</p>
-                  : <p><strong>Response</strong>: {response}</p>
-              ) : (  
-                // We have no response. Is there a request being processed or not?
-                requestInProcess ? 
-                  <p><strong>Response</strong>: TBD...</p>
-                  : <p><strong>Response</strong>: </p>
-              )
-            }
-          </div>
-          <br />
-          <div className='chat-history-wrapper'>
-            <div className='view-history-wrapper'>
-              <h1>Chat History</h1>
-              <button type="button" onClick={toggleChatHistory}>View</button>
-            </div>
-            {viewChatHistory && convoHist[0] && convoHist}
-          </div>
+      <div className="container">
+        <h1>RAG Chatbot</h1>
+        <div className="chat-history-wrapper">
+          {convoHist[0] && convoHist}
+          {requestInProcess && (
+              <div className="message response-message">Loading...</div>
+          )}
         </div>
+        <div className="form-wrapper">
+          <input
+              type="text"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Enter your message..."
+          />
+          <button onClick={handleUserQuery} disabled={!input || requestInProcess}>
+              Send
+          </button>
+        </div>
+      </div>
     )
 }
 
