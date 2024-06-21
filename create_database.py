@@ -1,9 +1,7 @@
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
-from langchain.embeddings.base import Embeddings
 from langchain_community.vectorstores import Chroma
-from sentence_transformers import SentenceTransformer
 from langchain_openai import OpenAIEmbeddings
 import openai
 import os
@@ -61,7 +59,7 @@ def save_to_chroma(chunks: list[Document]):
         chunks, OpenAIEmbeddings(api_key=openai.api_key), persist_directory=CHROMA_PATH
     )
     db.persist()
-    
+
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
 
 
