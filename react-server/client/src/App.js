@@ -4,6 +4,7 @@ import './App.css'
 function App() {
     const [input, setInput] = useState('')
     const [response, setResponse] = useState('')
+    const [chatHistory, setChatHistory] = useState([]) // 2D array w/ structure [ ["Q1", "A1"], ..., ["Qn", "An"] ], where n is the total number of questions asked
     const [requestInProcess, setRequestInProcess] = useState(null)
 
     const handleInputChange = (e) => {
@@ -23,6 +24,7 @@ function App() {
         })
         const data = await res.json()
         setResponse(data.response)
+        setChatHistory([...chatHistory, [input, data.response]])
         setInput('') // resetting input
       } catch (error) {
           console.error('Error:', error)
@@ -30,9 +32,17 @@ function App() {
       setRequestInProcess(false)
     }
 
+    const convoHist = chatHistory.map((convo, index) =>
+      <div className='q-and-a-wrapper' key={index}>
+        <p><strong>Question</strong>: {convo[0]}</p>
+        <p><strong>Answer</strong>: {convo[1]}</p>
+      </div>
+    )
+
     return (
         <div className='container'>
           <div className='form-wrapper'>
+            <h1>User Query</h1>
             <form onSubmit={(e) => e.preventDefault()}>
               <textarea 
                 value={input}
@@ -54,6 +64,10 @@ function App() {
                   : <p><strong>Response</strong>: </p>
               )
             }
+          </div>
+          <div className='chat-history-wrapper'>
+            <h1>Chat History</h1>
+            {convoHist[0] && convoHist}
           </div>
         </div>
     )
