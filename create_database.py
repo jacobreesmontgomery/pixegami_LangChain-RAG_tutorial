@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.environ['OPENAI_API_USER_KEY']
 
-CHROMA_PATH = "chroma"
+CHROMA_PATH = "chroma/rag_db"
 DATA_PATH = "data/books"
 
 
