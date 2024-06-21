@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
 
 function App() {
-    const [input, setInput] = useState('');
-    const [response, setResponse] = useState('');
+    const [input, setInput] = useState('')
+    const [response, setResponse] = useState('')
     const [requestInProcess, setRequestInProcess] = useState(null)
 
     const handleInputChange = (e) => {
-        setInput(e.target.value);
-    };
+        setInput(e.target.value)
+    }
 
     const handleUserQuery = async (e) => {
       setRequestInProcess(true)
@@ -20,12 +20,12 @@ function App() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ input }) 
-        });
-        const data = await res.json();
-        console.log('Response: ', data.response)
-        setResponse(data.response);
+        })
+        const data = await res.json()
+        setResponse(data.response)
+        setInput('') // resetting input
       } catch (error) {
-          console.error('Error:', error);
+          console.error('Error:', error)
       }
       setRequestInProcess(false)
     }
@@ -37,7 +37,7 @@ function App() {
               <textarea 
                 value={input}
                 onChange={handleInputChange}
-                placeholder="Enter your text here..."
+                placeholder="Enter your query here..."
               ></textarea>
               <button type="button" onClick={handleUserQuery}>Run User Query</button>
             </form>
@@ -56,7 +56,7 @@ function App() {
             }
           </div>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App

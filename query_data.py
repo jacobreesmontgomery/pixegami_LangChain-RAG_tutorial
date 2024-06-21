@@ -1,8 +1,13 @@
 # from dataclasses import dataclass
 from langchain_community.vectorstores import Chroma
-from create_database import SentenceTransformersEmbeddings
-from langchain_community.chat_models import ChatOllama
 from langchain.prompts import ChatPromptTemplate
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from dotenv import load_dotenv
+import openai
+import os
+
+load_dotenv()
+openai.api_key = os.environ['OPENAI_API_USER_KEY']
 
 CHROMA_PATH = "chroma"
 
@@ -32,8 +37,9 @@ def run_user_query(query):
     prompt = prompt_template.format(context=context_text, question=query)
     print(prompt)
 
-    model = ChatOllama()
+    model = ChatOpenAI(api_key=openai.api_key)
     response_text = model.predict(prompt)
+    return response_text
 
     sources = [doc.metadata.get("source", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
@@ -42,10 +48,11 @@ def run_user_query(query):
 
 
 def load_chroma_data():
-    embedding_function = SentenceTransformersEmbeddings()
+    embedding_function = OpenAIEmbeddings(api_key=openai.api_key)
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
     return db
 
 
 if __name__ == "__main__":
-    run_user_query()
+    query = input("Enter your query here: ")
+    run_user_query(query=query)
