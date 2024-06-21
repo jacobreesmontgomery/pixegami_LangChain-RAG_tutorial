@@ -71,3 +71,10 @@ button:hover {
 .q-and-a-wrapper p {
   margin-bottom: 5px;
 }
+
+.view-history-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}

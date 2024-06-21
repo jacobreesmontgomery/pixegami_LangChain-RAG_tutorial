@@ -6,6 +6,7 @@ function App() {
     const [response, setResponse] = useState('')
     const [chatHistory, setChatHistory] = useState([]) // 2D array w/ structure [ ["Q1", "A1"], ..., ["Qn", "An"] ], where n is the total number of questions asked
     const [requestInProcess, setRequestInProcess] = useState(null)
+    const [viewChatHistory, setViewChatHistory] = useState(false)
 
     const handleInputChange = (e) => {
         setInput(e.target.value)
@@ -30,6 +31,10 @@ function App() {
           console.error('Error:', error)
       }
       setRequestInProcess(false)
+    }
+
+    function toggleChatHistory() {
+      setViewChatHistory(!viewChatHistory)
     }
 
     const convoHist = chatHistory.map((convo, index) =>
@@ -65,9 +70,13 @@ function App() {
               )
             }
           </div>
+          <br />
           <div className='chat-history-wrapper'>
-            <h1>Chat History</h1>
-            {convoHist[0] && convoHist}
+            <div className='view-history-wrapper'>
+              <h1>Chat History</h1>
+              <button type="button" onClick={toggleChatHistory}>View</button>
+            </div>
+            {viewChatHistory && convoHist[0] && convoHist}
           </div>
         </div>
     )
