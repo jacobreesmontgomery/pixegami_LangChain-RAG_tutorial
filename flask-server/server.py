@@ -21,7 +21,7 @@ def new_query():
         Runs the incoming query and returns the results.
     """
     query = request.json.get('input', '')
-    response = qd.run_user_query(query=query)
+    response = qd.run_user_query(query=query) if query else "Invalid input."
     return jsonify({"response": response})
 
 
